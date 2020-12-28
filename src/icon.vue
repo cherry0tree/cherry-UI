@@ -9,7 +9,9 @@
 <script>
 export default {
   name: 'icon',
-  props: ['name']
+  props: {
+    name: String
+  }
 }
 </script>
 <style scoped>
