@@ -9,7 +9,7 @@ export default {
   name: 'button-group',
   mounted() {
     for(let node of this.$el.children) {
-      let name = node.nodeName.toLowerCaes()
+      let name = node.nodeName.toLowerCase()
       if(name != 'button') {
         console.warn(`请注意你写的组件是${name},子组件必须是 g-button`)
       }
