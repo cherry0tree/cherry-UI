@@ -27,6 +27,9 @@
         }
     </style>
     <style>
+      .box {
+        margin: 20px;
+      }
     </style>    
 </head>
 <body>
@@ -44,6 +47,16 @@
       <g-button>更多</g-button>
       <g-button icon="right" icon-position="right">下一页</g-button>
     </g-button-group>
+
+    <div class="box">
+        <!-- if atrributes exist then true -->
+        <g-input value="王老吉" disabled></g-input>
+        <g-input value="加多宝" readonly></g-input>
+        <g-input value="和其正"></g-input>
+    </div>
+    <div class="box">
+        <g-input value="王加和" error="姓名不能少于两个字"></g-input>
+    </div>    
   </div>  
   <script src="src/app.js"></script>
 </body>
