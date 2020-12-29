@@ -1,7 +1,8 @@
 <template>
 <div class="wrapper" :class="{error}">
+  <!-- input自己订阅input事件 -->
   <input type="text" :value="value" :disabled="disabled" :readonly="readonly"
-         @input="$emit('input',$event.target.value)">
+         @input="$emit('input', $event.target.value)">
   <template v-if="error">
     <icon name="error" class="icon-error"></icon>
     <span class="errorMessage">{{ error }}</span>
@@ -12,7 +13,7 @@
 <script>
 import Icon from './icon.vue'
 export default {
-  name: 'input',
+  name: 'Input',
   components: {
     Icon
   },
