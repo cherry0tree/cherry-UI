@@ -30,6 +30,10 @@
       .box {
         margin: 20px;
       }
+      .demo {
+        border: solid 1px #666;
+        min-height: 100px;
+      }
     </style>    
 </head>
 <body>
@@ -66,6 +70,14 @@
     <g-col span="8">34</g-col>
   </g-row>
 
+  <g-layout style="height: 100vh">
+      <g-header class="demo">header</g-header>
+      <g-layout>
+        <g-content class="demo">content</g-content>
+        <g-sider class="demo">sider</g-sider>
+      </g-layout>
+      <g-footer class="demo">footer</g-footer>
+  </g-layout>
 
   </div>  
   <script src="src/app.js"></script>
