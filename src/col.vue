@@ -50,7 +50,6 @@ export default {
   $class-prefix: col-;
   height: 100px;
   background: gray;
-  width: 50%;
   border: solid 1px blue;
   @for $n from 1 through 24 {
     &.#{$class-prefix}#{$n} {
