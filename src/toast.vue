@@ -1,12 +1,75 @@
 <template>
-<div class="toast">
-  <slot></slot>
+<div class="toast" ref ="wrapper">
+  <div class="message">
+    <slot v-if="!enableHtml"></slot>
+    <div v-else v-html="$slots.default[0]"></div>
+  </div>
+  <div class="line" ref="line"></div>
+  <span class="close" v-if="closeButton" @click="onClickClose">
+    {{closeButton.text}}
+  </span>
 </div>
 </template>
 
 <script>
 export default {
-  name: 'toast'
+  name: 'toast',
+  props: {
+    enableHtml: {
+      type: Boolean,
+      default: false
+    },
+    autoClose:{
+      type: Boolean,
+      default: false      
+    },
+    autoCloseDelay:{
+      type:Number,
+      default:5
+    },
+    closeButton:{
+      type:Object,
+      default(){
+        return{
+          text: '关闭',
+          callback: undefined
+        }
+      }
+    }   
+  },
+  mounted() {
+    this.updateStyles()
+    this.execAutoClose()
+  },
+  methods: {
+    close(){
+      //删除自己
+      this.$el.remove()
+      //结束本实例生命周期
+      this.$destroy()
+    },
+    updateStyles() {
+      this.$nextTick(() => {
+        this.$refs.line.style.height = `${this.$refs.wrapper.getBoundingClientRect().height}px`
+      })
+    },
+    execAutoClose() {
+      if(this.autoClose) {
+        setTimeout(() => {
+          this.close()
+        }, this.autoCloseDelay * 1000)
+      }
+    },
+    onClickClose(){
+      this.close()
+      if(this.closeButton && typeof this.closeButton.callback === 'function') {
+        this.closeButton.callback(this);
+      }
+    },
+    log(){
+      console.log('回调执行')
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -29,5 +92,17 @@ $toast-bg: rgba(0, 0, 0, 0.75);
   background: $toast-bg;
   border-radius: 4px;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+}
+.message{
+  padding: 8px 0;
+}
+.close{
+  cursor: pointer;
+  padding-left: 16px;
+}
+.line{
+  height: 100%;
+  border-left: 1px solid #666;
+  margin-left: 16px;
 }
 </style>
