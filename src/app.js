@@ -38,13 +38,13 @@ new Vue({
     methods: {
       showToast() {
         this.$toast('我是 message', {
+          position:'middle',
           closeButton: {
             text: 'got that',
             callback(toast){
               toast.log
             }
-          },
-          autoClose: {}
+          }
         })
       }
     }
