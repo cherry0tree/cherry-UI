@@ -87,6 +87,31 @@
   <button @click="showToast2">按钮</button>
   <button @click="showToast3">按钮</button>
   
+  <g-tabs :selected.sync="selectedTab">
+
+    <g-tabs-head>
+      <template name="actions">
+        <button>设置</button>
+      </template>
+      <g-tabs-item name="first">
+        <g-icon name="settings"></g-icon>
+      </g-tabs-item>
+      <g-tabs-item name="second">
+        test1
+      </g-tabs-item>
+      <g-tabs-item name="third">
+        test2
+      </g-tabs-item>      
+    </g-tabs-head>
+
+    <g-tabs-body>
+      <g-tabs-pane name="first">周一资讯</g-tabs-pane>
+      <g-tabs-pane name="second">周二资讯</g-tabs-pane>
+      <g-tabs-pane name="third">周三资讯</g-tabs-pane>
+    </g-tabs-body>
+  </g-tabs>
+
+
   </div>  
   <script src="src/app.js"></script>
 </body>
