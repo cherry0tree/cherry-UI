@@ -47,6 +47,10 @@ new Vue({
       selectedTab:'third' 
     },
     methods: {
+      yyy(data){
+        console.log('yyy')
+        console.log(data)
+      },      
       showToast(position) {
         this.$toast('我是 message', {
           position,
