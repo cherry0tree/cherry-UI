@@ -58,6 +58,7 @@ export default {
   methods: {
     close(){
       //删除自己
+      this.$emit('close')
       this.$el.remove()
       //结束本实例生命周期
       this.$destroy()
