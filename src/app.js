@@ -36,9 +36,9 @@ new Vue({
       message:  'hello'  
     },
     methods: {
-      showToast() {
+      showToast(position) {
         this.$toast('我是 message', {
-          position:'middle',
+          position,
           closeButton: {
             text: 'got that',
             callback(toast){
@@ -46,7 +46,16 @@ new Vue({
             }
           }
         })
-      }
+      },
+      showToast1(){
+        this.showToast('top')
+      },
+      showToast2(){
+        this.showToast('middle')
+      },
+      showToast3(){
+        this.showToast('bottom')
+      },      
     }
 })
 
