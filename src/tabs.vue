@@ -29,12 +29,20 @@ export default {
   },
   provide(){
     return {
-      //tabs里的eventBus只影响tabs上下文 非全局      
+      //tabs里的eventBus只影响tabs上下文 非全局  若不使用provide注入 在全局定义bus    
       eventBus: this.eventBus
     }
   },
   mounted(){
-    this.eventBus.$emit('update:selected', this.selected)
+    this.$children.forEach((vm) => {
+      if(vm.$options.name === 'tabs-head') {
+        vm.$children.forEach((childVm) => {
+          if(childVm.$options.name === 'tabs-item' && childVm.name === this.selected) {
+            this.eventBus.$emit('update:selected', this.selected, childVm)
+          }
+        })
+      }
+    })
   }
 }
 </script>

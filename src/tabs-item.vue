@@ -33,13 +33,14 @@ export default {
   created(){
     //与tabs保持一致
     this.eventBus.$on('update:selected', (name) => {
+      //点击切换
       this.active = (name === this.name)
     })
   },
   methods:{
     xxx(){
-      //点击切换
-      this.eventBus.$emit('update:selected',this.name)
+      console.log(this.name)
+      this.eventBus.$emit('update:selected',this.name, this)
     }
   }
 }
@@ -47,8 +48,14 @@ export default {
 <style lang="scss" scoped>
 .tabs-item{
   padding: 0 1em;
+  cursor: pointer;
+  border: solid 1px green;
+  height: 100%;
+  display: flex;
+  align-items: center;
   &.active{
-    background: red;
+    color: blue;
+    font-weight: bold;
   }
 }
 </style>
