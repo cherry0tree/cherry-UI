@@ -64,8 +64,7 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-$border-color:#333;
-$border-radius:4px;
+@import "helper";
 .poppover{
   display: inline-block;
   position: relative;

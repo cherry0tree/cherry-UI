@@ -90,9 +90,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-$font-size: 14px;
-$toast-height: 40px;
-$toast-bg: rgba(0, 0, 0, 0.75);
+@import "helper";
 
 @keyframes slide-up {
   0%{opacity: 0;transform:translateY(100%)}

@@ -23,7 +23,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-$tab-height:40px;
+@import "helper";
 .tabs-head{
   position: relative;
   display: flex;

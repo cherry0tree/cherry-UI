@@ -26,7 +26,7 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-$grey:#ddd;
+@import "helper";
 .collapseItem{
   .title{
     display: flex;

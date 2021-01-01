@@ -50,7 +50,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-$disable-text-color: grey;
+@import "helper";
 
 .tabs-item{
   padding: 0 1em;
