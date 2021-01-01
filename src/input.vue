@@ -2,6 +2,7 @@
 <div class="wrapper" :class="{error}">
   <!-- input自己订阅input事件 -->
   <input type="text" :value="value" :disabled="disabled" :readonly="readonly"
+         :placeholder="placeholder"
          @input="$emit('input', $event.target.value)">
   <template v-if="error">
     <icon name="error" class="icon-error"></icon>
@@ -18,6 +19,9 @@ export default {
     Icon
   },
   props: {
+    placeholder: {
+      type: String
+    },
     value: {
       type: String
     },
