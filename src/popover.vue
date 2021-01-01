@@ -1,6 +1,9 @@
 <template>
 <div class="poppover" ref="popover" @click="onClick">
-  <div class="content-wrapper" ref="contentWrapper" v-if="visible">
+  <div class="content-wrapper" 
+       :class="{[`position-${position}`]: true}"
+       ref="contentWrapper" 
+       v-if="visible">
     <slot name="content"></slot>
   </div>
   <span ref="triggerWrapper" style="display: inline-block">
@@ -12,6 +15,15 @@
 <script>
 export default {
   name: 'popover',
+  props: {
+    position: {
+      type: String,
+      default: 'top',
+      validator(value){
+        return ['top', 'bottom', 'left', 'right'].indexOf(value) >= 0
+      }
+    }
+  },
   data(){
     return {
       visible: false
@@ -48,8 +60,6 @@ $border-radius:4px;
     border-radius: $border-radius;
     background: white;
     filter: drop-shadow(0 1px 1px rgba(0,0,0,0.5));
-    transform: translateY(-100%);
-    margin-top: -10px;
     padding: .5em 1em;
     &::before, &::after{
       content: '';
@@ -57,17 +67,66 @@ $border-radius:4px;
       border: solid 10px transparent;
       width: 0;
       height: 0;
-      position: absolute;
-      left: 10px;      
+      position: absolute;     
     }
-    &::before{
-      border-top-color: black;
-      top:100%
+    &.position-top{
+      transform: translateY(-100%);
+      margin-top: -10px;
+      &::before{
+        border-top-color: black;
+        top:100%
+      }
+      &::after{
+        border-top-color: white;
+        top: calc(100% - 1px);
+      } 
     }
-    &::after{
-      border-top-color: white;
-      top: calc(100% - 1px);
-    }    
+    &.position-bottom{
+      transform: translateY(100%);
+      margin-top: 10px;
+      &::before,&::after{
+        left: 10px;
+      }
+      &::before{
+        border-bottom-color: black;
+        bottom:100%
+      }
+      &::after{
+        border-bottom-color: white;
+        bottom: calc(100% - 1px);
+      }    
+    }
+    &.position-left{
+      transform: translateX(-100%);
+      margin-left: -10px;
+      &::before,&::after{
+        transform: translateY(-50%);
+        top: 50%;
+      }
+      &::before{
+        border-left-color: black;
+        left:100%
+      }
+      &::after{
+        border-left-color: white;
+        left: calc(100% - 1px);
+      }    
+    }
+    &.position-right{
+      margin-left: 10px;
+      &::before,&::after{
+        transform: translateY(-50%);
+        top: 50%;
+      }
+      &::before{
+        border-right-color: black;
+        right:100%
+      }
+      &::after{
+        border-right-color: white;
+        right: calc(100% - 1px);
+      }
+    }
   }
 }
 </style>
