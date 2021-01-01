@@ -34,15 +34,26 @@ export default {
     }
   },
   mounted(){
-    this.$children.forEach((vm) => {
-      if(vm.$options.name === 'tabs-head') {
-        vm.$children.forEach((childVm) => {
-          if(childVm.$options.name === 'tabs-item' && childVm.name === this.selected) {
-            this.eventBus.$emit('update:selected', this.selected, childVm)
-          }
-        })
+    this.checkChild()
+    this.selectTab()
+  },
+  methods: {
+    selectTab() {
+      this.$children.forEach((vm) => {
+        if(vm.$options.name === 'tabs-head') {
+          vm.$children.forEach((childVm) => {
+            if(childVm.$options.name === 'tabs-item' && childVm.name === this.selected) {
+              this.eventBus.$emit('update:selected', this.selected, childVm)
+            }
+          })
+        }
+      })      
+    },
+    checkChild() {
+      if(this.$children.length === 0) {
+        console.warn('tabs需要子组件作为插槽')
       }
-    })
+    }
   }
 }
 </script>

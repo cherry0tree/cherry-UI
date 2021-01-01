@@ -7,12 +7,6 @@
 <script>
 export default {
   name: 'tabs-item',
-  inject:['eventBus'],
-  data(){
-    return {
-      active:false
-    }
-  },  
   props:{
     disabled:{
       type:Boolean,
@@ -21,12 +15,14 @@ export default {
     name: {
       type: String | Number,
       required: true
-    },
-    disabled: {
-      type: Boolean,
-      default: false
     }
-  },
+  },  
+  inject:['eventBus'],
+  data(){
+    return {
+      active:false
+    }
+  },  
   computed: {
     classes(){
       return {
@@ -46,8 +42,8 @@ export default {
     onClick(){
       console.log(this.name)
       this.eventBus.$emit('update:selected',this.name, this)
-      if(disabled) {
-        return
+      if(this.disabled) {
+        return 
       }
     }
   }
