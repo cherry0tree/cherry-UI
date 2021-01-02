@@ -33,7 +33,8 @@ export default {
     border: 1px solid $grey;
     margin: -1px -1px 0 -1px;
     align-items: center;
-    padding: 0 8px;    
+    padding: 0 8px;
+    cursor: pointer; 
   }
   > .content{
     padding: 8px;
