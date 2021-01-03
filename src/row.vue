@@ -22,7 +22,7 @@ export default {
   },
   computed: {
     rowStyle() {
-      let {gutter} = this; //= this.gutter
+      let {gutter} = this;
       return {marginLeft: -gutter / 2  + 'px', marginRight: -gutter / 2  + 'px'};
     },
     rowClass() {
@@ -41,6 +41,7 @@ export default {
 <style lang="scss" scoped>
 .row{
   display: flex;
+  flex-wrap: wrap;
   &.align-left{justify-content: flex-start;}
   &.align-right{justify-content: flex-end}
   &.align-center{justify-content: center}  
