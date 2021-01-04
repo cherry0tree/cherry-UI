@@ -11,7 +11,7 @@ let validator = (obj) => {
   let keys = Object.keys(obj)
   let valid = true
   keys.forEach(key => {
-    if(!['span'].includes(key)) {
+    if(!['span', 'offset'].includes(key)) {
       valid = false
     }
   })
