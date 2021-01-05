@@ -95,9 +95,9 @@ export default {
         top: calc(100% - 1px);
       } 
     }
-    &.position-bottom{
+    &.position-bottom {
       transform: translateY(100%);
-      margin-top: 10px;
+      margin-top: -10px;
       &::before,&::after{
         left: 10px;
       }
@@ -127,7 +127,8 @@ export default {
       }    
     }
     &.position-right{
-      margin-left: 10px;
+      transform: translateX(100%);
+      margin-left: -10px;
       &::before,&::after{
         transform: translateY(-50%);
         top: 50%;
