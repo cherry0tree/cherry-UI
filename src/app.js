@@ -52,11 +52,7 @@ new Vue({
       message:  'hello',
       selectedTab:'third' 
     },
-    methods: {
-      yyy(data){
-        console.log('yyy')
-        console.log(data)
-      },      
+    methods: {  
       showToast(position) {
         this.$toast('我是 message', {
           position,

@@ -17,6 +17,7 @@ export default {
     this.eventBus.$on('update:selected', (item, vm) => {
       console.log(vm.$el.getBoundingClientRect())
       let {width,height,top,left} = vm.$el.getBoundingClientRect()
+      //设置width和left即可定位在上一个dom元素下面line的位置
       this.$refs.line.style.width = `${width}px`
       this.$refs.line.style.left  = `${vm.$el.offsetLeft}px`
     })
