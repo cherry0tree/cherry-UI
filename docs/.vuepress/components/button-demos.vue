@@ -2,7 +2,7 @@
 <div class="wrapper">
   <div>
     <g-button>默认按钮</g-button>
-    <g-button icon="settings">默认按钮</g-button>
+    <g-button icon="thumbs-up">默认按钮</g-button>
     <g-button :loading="loading" @click="loading=!loading">默认按钮</g-button>
   </div>
 </div>  

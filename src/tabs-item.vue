@@ -41,10 +41,10 @@ export default {
   methods:{
     onClick(){
       console.log(this.name)
-      this.eventBus.$emit('update:selected',this.name, this)
       if(this.disabled) {
         return 
-      }
+      }      
+      this.eventBus.$emit('update:selected',this.name, this)
     }
   }
 }

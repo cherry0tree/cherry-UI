@@ -88,7 +88,7 @@ export default {
       margin-top: -10px;
       &::before{
         border-top-color: black;
-        top:100%
+        top:100%;
       }
       &::after{
         border-top-color: white;

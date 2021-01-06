@@ -10,7 +10,7 @@
     <g-popover>
       <g-button>上方弹出</g-button>
       <template slot="content">
-        <a href="https://github.com/Orange-ice/Ice-UI">这是个a链接</a>
+        <a href="www.baidu.com">这是个a链接</a>
       </template>
     </g-popover>
     <g-popover position="bottom">
