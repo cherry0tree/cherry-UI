@@ -1,7 +1,7 @@
 module.exports = {
     base:'/Cherry-UI/',
     title: 'Cherry-UI',
-    description: '一个简约、易用的 UI 框架',
+    description: '一个简约、易用的 UI 组件库方案',
     themeConfig: {
       nav: [
         {text: '主页', link: '/'},
@@ -10,13 +10,6 @@ module.exports = {
       ],
       displayAllHeaders: true, // 默认值：false
       sidebar: [
-        {
-          title: '入门',
-          children: [
-            '/install/',
-            '/get-started/',
-          ]
-        },
         {
           title: '组件',
           collapsable: false, // 可选的, 默认值是 true,
