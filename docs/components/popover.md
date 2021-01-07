@@ -5,8 +5,6 @@ title: Popover 弹出框
 
 **使用方法**
 
-### 支持 HTML
-
 #### 预览
 
 <ClientOnly>
@@ -25,7 +23,7 @@ title: Popover 弹出框
 <g-popover>
   <g-button>上方弹出</g-button>
   <template slot="content">
-    <a href="https://www.baidu.com">这是个a链接</a>
+    <a href="https://github.com/cherry0tree/cherry-UI">这是个a链接</a>
   </template>
 </g-popover>
 <g-popover position="bottom">

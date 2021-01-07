@@ -40,21 +40,12 @@ export default {
   },
   mounted() {
     if(this.trigger === 'click') {
-      //让显示的节点也能click显示与隐藏
+      //显示的节点也能click显示与隐藏 onClickDocument return来解决
       this.$refs.popover.addEventListener('click', this.onClick)
     } else {
       this.$refs.popover.addEventListener('mouseenter', this.open)
       this.$refs.popover.addEventListener('mouseleave', this.close)      
     }
-  },
-  destroyed(){
-    if(this.trigger === 'click') {
-      //让显示的节点也能click显示与隐藏
-      this.$refs.popover.removeEventListener('click', this.onClick)
-    } else {
-      this.$refs.popover.removeEventListener('mouseenter', this.open)
-      this.$refs.popover.removeEventListener('mouseleave', this.close)      
-    }    
   },
   methods: {
     onClick(){
@@ -66,21 +57,20 @@ export default {
     },
     open(){
       this.visible = true
-             console.log('111')
       this.$nextTick(() => {
         this.positionContent()
-        document.addEventListener('click', this.onClickDocument)
       })      
     },
     close(){
       this.visible = false
-      document.removeEventListener('click', this.onClickDocument)
     },
     positionContent() {
       const {contentWrapper, triggerWrapper} = this.$refs
       document.body.appendChild(contentWrapper)
       const {width, height, top, left} = triggerWrapper.getBoundingClientRect()
+      console.log(contentWrapper.getBoundingClientRect())
       const {height: height2} = contentWrapper.getBoundingClientRect()
+      console.log(window)
       const positions = {
         top: {
           top: top + window.scrollY,
@@ -101,20 +91,7 @@ export default {
       }
       contentWrapper.style.top = positions[this.position].top + 'px'
       contentWrapper.style.left = positions[this.position].left + 'px'
-    },
-    onClickDocument(e) {
-      if (this.$refs.popover &&
-          (this.$refs.popover === e.target || this.$refs.popover.contains(e.target))
-      ) {
-        return
-      }
-      if (this.$refs.contentWrapper &&
-          (this.$refs.contentWrapper === e.target || this.$refs.contentWrapper.contains(e.target))
-      ) {
-        return
-      }
-      this.close()
-    },    
+    }   
   }
 }
 </script>
