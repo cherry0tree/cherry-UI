@@ -2,7 +2,7 @@
   <div style="padding-top: 16px;">
 
     <div>
-      <g-button @click="onClickButton">上方弹出</g-button>
+      <g-button @click="onClickButton">中间弹出</g-button>
     </div>
 
   </div>

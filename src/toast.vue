@@ -112,6 +112,7 @@ export default {
   $animation-duration:300ms;
   &.position-top{
     top: 0;
+    z-index: 30 !important;
     .toast{
       animation: slide-down $animation-duration;
       border-top-left-radius: 0;
@@ -120,6 +121,7 @@ export default {
   }
   &.position-middle{
     top: 50%;
+    z-index: 30 !important;
     transform: translateX(-50%) translateY(-50%);
     .toast{
       animation: fade-in $animation-duration;
@@ -127,6 +129,7 @@ export default {
   }
   &.position-bottom{
     bottom: 0;
+    z-index: 30 !important;
     .toast{
       animation: slide-up $animation-duration;
       border-bottom-left-radius: 0;
@@ -138,7 +141,7 @@ export default {
 .toast {
   font-size: $font-size;
   color: #fff;
-  height: $toast-height;
+  min-height: $toast-min-height;
   line-height: 1.8;
   padding: 0 16px;
   display: flex;

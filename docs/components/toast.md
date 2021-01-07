@@ -15,7 +15,7 @@ title: Toast 文字提示
 #### 示例代码
 
 ```vue
-  <g-button @click="$toast('点击弹出提示')">上方弹出</g-button>
+  <g-button @click="$toast('点击弹出提示'), {position:'top'})">上方弹出</g-button>
   <g-button @click="$toast('点击弹出提示', {position:'middle'})">中间弹出</g-button>
   <g-button @click="$toast('点击弹出提示', {position:'bottom'})">下方弹出</g-button>
 ```
@@ -33,18 +33,18 @@ title: Toast 文字提示
 ```vue
 <template>
     <div>
-      <g-button @click="onClickButton">上方弹出</g-button>
+      <g-button @click="onClickButton">中间弹出</g-button>
     </div>
 </template>
 <script>
 export default {
 methods: {
     onClickButton () {
-      this.$toast('你知道我在等你吗？', {
+      this.$toast('hello world', {
         closeButton: {
-          text: '知道了',
+          text: 'got that',
           callback: () => {
-            console.log('他说知道了')
+            console.log('yes')
           }
         }
       })
@@ -67,7 +67,7 @@ methods: {
 ```vue
 <template>
     <div>
-      <g-button @click="onClickButton">上方弹出</g-button>
+      <g-button @click="onClickButton">中间弹出</g-button>
     </div>
 </template>
 <script>

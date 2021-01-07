@@ -131,9 +131,9 @@
       </g-layout>
   </g-layout>
 
-  <button @click="showToast1">按钮</button>
-  <button @click="showToast2">按钮</button>
-  <button @click="showToast3">按钮</button>
+  <g-button @click="$toast('这是上方的内容', {position:'top'})">上方弹出</g-button>
+  <g-button @click="$toast('这是中间的内容', {position:'middle'})">中间弹出</g-button>
+  <g-button @click="$toast('这是下方的内容', {position:'bottom'})">下方弹出</g-button>
   
   <g-tabs :selected.sync="selectedTab">
     <g-tabs-head>

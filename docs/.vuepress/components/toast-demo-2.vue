@@ -1,7 +1,7 @@
 <template>
   <div style="padding-top: 16px;">
     <div>
-      <g-button @click="onClickButton">上方弹出</g-button>
+      <g-button @click="onClickButton">中间弹出</g-button>
     </div>
   </div>
 </template>
@@ -55,11 +55,11 @@ export default {
   },
   methods: {
     onClickButton () {
-      this.$toast('你知道我在等你吗？', {
+      this.$toast('hello world', {
         closeButton: {
-          text: '知道了',
+          text: 'got that',
           callback: () => {
-            console.log('他说知道了')
+            console.log('Yes')
           }
         }
       })

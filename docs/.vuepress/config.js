@@ -5,7 +5,6 @@ module.exports = {
     themeConfig: {
       nav: [
         {text: '主页', link: '/'},
-        {text: '文档', link: '/guide/'},
         {text: 'Github', link: 'https://github.com/cherry0tree/cherry-UI'},
       ],
       displayAllHeaders: true, // 默认值：false
