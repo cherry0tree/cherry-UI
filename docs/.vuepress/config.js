@@ -1,5 +1,5 @@
 module.exports = {
-    base:'/Cherry-UI/',
+    base:'/vuepress/',
     title: 'Cherry-UI',
     description: '一个简约、易用的 UI 组件库方案',
     themeConfig: {
